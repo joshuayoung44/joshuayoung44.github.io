@@ -3,532 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Young | Technical Documentation Strategist & Leader</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Joshua Young | Technical Writer & Documentation Strategist</title>
     <style>
+        /* General Styling */
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            background-color: #f6f8fa;
-            color: #1f2328;
-        }
-        .repo-header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #d0d7de;
-        }
-        .main-content {
-            background-color: #ffffff;
-            border: 1px solid #d0d7de;
-            border-radius: 6px;
-        }
-        .tab-active {
-            border-bottom: 2px solid #fd8c73;
-            color: #1f2328;
-            font-weight: 600;
-        }
-        .tab-inactive {
-            border-bottom: 2px solid transparent;
-            color: #57606a;
-        }
-        .doc-content {
-            padding: 2rem;
-        }
-        .prose h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #d0d7de;
-        }
-        .prose h5 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .prose p, .prose ul, .prose ol {
-            margin-bottom: 1rem;
-            color: #1f2328;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
         }
-        .prose ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
+
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 1rem 2rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .prose ol {
-            list-style-type: decimal;
-            padding-left: 1.5rem;
+
+        /* Header */
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #e0e0e0;
         }
-        .prose pre {
-            background-color: #f6f8fa;
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px solid #d0d7de;
-            overflow-x: auto;
-            font-size: 0.875rem;
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #2c3e50;
         }
-        .prose table {
-            width: 100%;
-            text-align: left;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid #d0d7de;
+
+        header .contact-info {
+            margin-top: 0.5rem;
+            color: #555;
+            font-size: 1rem;
         }
-        .prose th, .prose td {
-            border: 1px solid #d0d7de;
-            padding: 0.75rem;
-        }
-        .prose th {
-            background-color: #f6f8fa;
-            font-weight: 600;
-        }
-        .prose blockquote {
-            border-left: 4px solid #d0d7de;
-            padding-left: 1rem;
-            margin-left: 0;
-            color: #57606a;
-        }
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1f2328;
-            padding-bottom: 0.75rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #d0d7de;
-        }
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2328;
-        }
-        .link {
-            color: #0969da;
+
+        header .contact-info a {
+            color: #3498db;
             text-decoration: none;
         }
-        .link:hover {
+        
+        header .contact-info a:hover {
             text-decoration: underline;
         }
-        .skill-tag {
-            background-color: #ddf4ff;
-            color: #0969da;
-            font-size: 0.75rem;
+
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 1rem auto 0;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #3498db;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .date {
+            float: right;
+            font-style: italic;
+            color: #777;
+        }
+
+        /* Work Experience & Education */
+        .job, .education-entry {
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skill-item {
+            background-color: #eaf2f8;
+            color: #3498db;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-weight: 500;
-            padding: 0.25rem 0.75rem;
-            border-radius: 2em;
+            font-size: 0.95rem;
+        }
+
+        /* Writing Samples */
+        .sample-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .sample-container details {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sample-container summary {
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+        
+        .sample-container summary:hover {
+            background-color: #f1f1f1;
+        }
+
+        .sample-content {
+            padding: 1.5rem;
+            border-top: 1px solid #ddd;
+            background: #fff;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .sample-content h1, .sample-content h2, .sample-content h3 {
+             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div class="container mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
-
-        <!-- Header / Hero -->
-        <header class="text-center pt-12 pb-8">
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Joshua Young</h1>
-            <p class="mt-3 text-xl sm:text-2xl text-gray-600">Principal Technical Writer & Documentation Strategist</p>
-            <div class="mt-6 flex justify-center items-center flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500">
-                <span>Charlottesville, VA</span>
-                <span class="text-gray-300 hidden sm:inline">|</span>
-                <a href="mailto:JoshuaYoung4@gmail.com" class="link">JoshuaYoung4@gmail.com</a>
-                <span class="text-gray-300 hidden sm:inline">|</span>
-                <span>(617) 642-4650</span>
+    <div class="container">
+        <header>
+            [cite_start]<h1>Joshua Young</h1> [cite: 1]
+            <div class="contact-info">
+                [cite_start]Charlottesville, VA [cite: 2] | [cite_start]617-642-4650 [cite: 2] | [cite_start]<a href="mailto:Joshua.Young4@gmail.com">Joshua.Young4@gmail.com</a> [cite: 2]
             </div>
+            <p>
+                [cite_start]Principal Technical Writer and documentation strategist with 14+ years of experience architecting, scaling, and leading user-centric documentation solutions for API, SaaS, and cloud platforms. [cite: 3] [cite_start]Proven leader in founding and building DocOps departments, establishing enterprise-wide governance, and delivering documentation that measurably improves developer experience, streamlines onboarding, and reduces support costs. [cite: 4] [cite_start]Expert in remote leadership, driving impactful change in fast-paced, distributed environments, and spearheading initiatives that directly contribute to product adoption and revenue growth. [cite: 5]
+            </p>
         </header>
 
-        <div class="main-content">
-            <main class="p-4 sm:p-6 lg:p-8">
-                <!-- About Section -->
-                <section id="about" class="mb-12">
-                    <h2>Summary</h2>
-                    <div class="text-base text-gray-700 space-y-4">
-                        <p>
-                            Principal Technical Writer and documentation strategist with 14+ years of experience architecting, scaling, and leading user-centric documentation solutions for API, SaaS, and cloud platforms. Proven leader in founding and building DocOps departments, establishing enterprise-wide governance, and delivering documentation that measurably improves developer experience, streamlines onboarding, and reduces support costs. Expert in remote leadership, driving impactful change in fast-paced, distributed environments, and spearheading initiatives that directly contribute to product adoption and revenue growth.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Resume Section -->
-                <section id="resume" class="mb-12">
-                    <h2>Professional Experience</h2>
-                    <div class="space-y-8">
-                        <!-- OneView Commerce -->
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap">
-                                <h3 class="text-gray-900">Principal API Technical Writer</h3>
-                                <span class="text-gray-500">2020 – 2025</span>
-                            </div>
-                            <h4 class="font-medium text-gray-600">OneView Commerce</h4>
-                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-2">
-                                <li>Founded and led OneView's first DocOps department, transforming technical communication and developer experience for Headless App and SaaS UI platforms in a fully remote environment.</li>
-                                <li>Architected, launched, and managed OneView's documentation portal, a unified platform serving as a cornerstone for product showcase and integration for internal and external stakeholders, significantly improving content accessibility and user engagement.</li>
-                                <li>Designed and implemented a comprehensive API documentation infrastructure, transitioning from legacy wiki systems to a standardized, documentation-as-a-product model, enhancing developer experience.</li>
-                                <li>Established and directed an enterprise-wide documentation governance program, successfully training and aligning cross-functional teams (customer, engineering, product, executive) on modern documentation best practices across multiple platforms and remote collaboration tools (e.g., Confluence, JIRA, Slack).</li>
-                                <li>Led strategic initiatives to standardize product taxonomy and information architecture, significantly improving internal and external user experience, content accessibility, and cross-departmental communication.</li>
-                                <li>Developed and implemented automated documentation workflows integrated with JSON, TypeScript, and AWS services (e.g., SQS, Lambda), increasing documentation efficiency and accuracy.</li>
-                                <li>Created a scalable documentation architecture supporting both SaaS and headless application products, facilitating seamless client integration and reducing time-to-market for new features.</li>
-                                <li>Spearheaded cross-departmental documentation adoption initiatives, streamlining onboarding processes and demonstrably reducing support queries.</li>
-                            </ul>
-                        </div>
-                        <!-- Optum Analytics -->
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap">
-                                <h3 class="text-gray-900">Senior Technical Writer</h3>
-                                <span class="text-gray-500">2015 – 2020</span>
-                            </div>
-                            <h4 class="font-medium text-gray-600">Optum Analytics</h4>
-                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-2">
-                                <li>Led enterprise-wide documentation strategy for complex business intelligence platforms, enhancing clarity and usability for diverse technical and non-technical audiences.</li>
-                                <li>Established and enforced documentation standards and processes across multiple agile development teams, improving content consistency and quality.</li>
-                                <li>Architected and implemented a robust documentation lifecycle system, including automated deployment pipelines from Git repositories to client-facing platforms, ensuring consistent alignment with each product release cycle.</li>
-                                <li>Developed an innovative auto-generation system for documentation, dynamically updating content based on application and database changes, ensuring content accuracy and timeliness.</li>
-                                <li>Established and led a documentation governance program, training product managers, developers, and Subject Matter Experts (SMEs) on documentation best practices and tools.</li>
-                                <li>Built and mentored a high-performing technical writing team, implementing remote methodologies for workflow optimization and establishing clear career development paths.</li>
-                                <li>Created standardized documentation frameworks for the full product lifecycle, from functional specifications to API reference manuals and comprehensive training materials.</li>
-                            </ul>
-                        </div>
-                        <!-- Hologic -->
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap">
-                                <h3 class="text-gray-900">Technical Writer II</h3>
-                                <span class="text-gray-500">2012 – 2015</span>
-                            </div>
-                            <h4 class="font-medium text-gray-600">Hologic, Inc.</h4>
-                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-2">
-                                <li>Spearheaded documentation initiatives for FDA-regulated blood and plasma screening products, ensuring strict compliance with regulatory standards and improving content accessibility for internal and external users.</li>
-                                <li>Led documentation strategy and execution for the Procleix ABD product launch, directly contributing to a $400M+ annual revenue increase.</li>
-                                <li>Established and enforced FDA-compliant change control processes for all product documentation, ensuring quality control readiness and traceability.</li>
-                                <li>Served as the primary documentation expert during FDA audits, successfully defending documentation methodologies and ensuring the seamless deployment of new product lines.</li>
-                                <li>Implemented new documentation standards across quality specifications, Standard Operating Procedures (SOPs), and validation protocols, enhancing overall product quality and compliance.</li>
-                            </ul>
-                        </div>
-                         <!-- Price Wheeler Corp -->
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap">
-                                <h3 class="text-gray-900">Technical Writer</h3>
-                                <span class="text-gray-500">2010 – 2012</span>
-                            </div>
-                            <h4 class="font-medium text-gray-600">Price Wheeler Corp</h4>
-                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-2">
-                               <li>Developed and executed a user-centered, SEO-optimized technical content strategy for Price Wheeler's industrial manufacturing portfolio, improving online visibility, information quality, and attracting interest from key stakeholders.</li>
-                            </ul>
-                        </div>
-                    </div>
-                     <div class="mt-12">
-                        <h3>Skills</h3>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <span class="skill-tag">Agile</span>
-                            <span class="skill-tag">Asana</span>
-                            <span class="skill-tag">ATS Optimization</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Bitbucket</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">Confluence</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">Document360</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">JIRA</span>
-                            <span class="skill-tag">JSON</span>
-                            <span class="skill-tag">MadCap Flare</span>
-                            <span class="skill-tag">Markdown</span>
-                            <span class="skill-tag">OAuth</span>
-                            <span class="skill-tag">OpenAPI / Swagger</span>
-                            <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">SaaS</span>
-                            <span class="skill-tag">SAML</span>
-                            <span class="skill-tag">Scrum</span>
-                            <span class="skill-tag">Slack</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">Static site generators</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">XML</span>
-                            <span class="skill-tag">YAML</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Portfolio Section -->
-                <section id="portfolio">
-                    <h2>Work Samples</h2>
-                    <div class="flex border-b border-gray-200 mb-4">
-                        <button class="tab-btn tab-active py-2 px-4" onclick="openTab(event, 'api-docs')">API & Integration</button>
-                        <button class="tab-btn tab-inactive py-2 px-4" onclick="openTab(event, 'user-guides')">User-Facing Guides</button>
-                        <button class="tab-btn tab-inactive py-2 px-4" onclick="openTab(event, 'strategy-docs')">Strategy & Process</button>
-                    </div>
-
-                    <!-- API & Integration Docs -->
-                    <div id="api-docs" class="tab-content doc-content">
-                        <div class="prose max-w-none">
-                            <h3>API & Integration Documentation Samples</h3>
-                            <blockquote>This section contains two anonymized documents aimed at a technical audience. The first is a strategic guide to the overall data import process, and the second is a detailed API reference for a Product Importer.</blockquote>
-                            
-                            <h4>Sample 1: Master Data Import Process</h4>
-                            <h5>Overview</h5>
-                            <p>Use the following process to import data into the ACME Platform:</p>
-                            <ol>
-                                <li>Format the relevant importer</li>
-                                <li>Generate a bearer token</li>
-                                <li>Import your data</li>
-                                <li>Evaluate responses</li>
-                            </ol>
-
-                            <h5>Best Practices</h5>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Topic</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Import Thresholds</td>
-                                        <td>To maximize the speed at which your data is processed, it is highly recommended that you separate your Product and Price records into multiple batches / requests, e.g., importing batches of 100 products, 10 requests at a time, and a 1 second pause between each request.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Manual Imports</td>
-                                        <td>The process described on this page must be followed when manually importing data. You can use this process for establishing an initial master dataset, running tests against sample populations, or troubleshooting backend automation issues.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Automated Imports</td>
-                                        <td>After completing the initial Master Data integration process, it is recommended that all future data imports are scheduled to run at pre-configured intervals. This automated setup ensures critical data remains up-to-date and aligned with your systems of record.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <h5>Step 1: Format the Relevant Importer</h5>
-                            <p>Each set of master data is typically derived from an external system of record, e.g., from your ERP Systems. To upload your master data into ACME, you must use a set of dedicated ACME Importers, i.e., schemas that enable you to easily convert your ERP data to JavaScript Object Notation (JSON) format.</p>
-                            <p>To successfully integrate to the ACME Digital Platform, you must begin by importing all five master data types in the order listed below.</p>
-                            <ol>
-                                <li>Locations</li>
-                                <li>Merchandise Groups</li>
-                                <li>Products</li>
-                                <li>Prices</li>
-                                <li>Taxes</li>
-                            </ol>
-
-                            <h5>Step 2: Generate a Bearer Token</h5>
-                            <p>Bearer tokens use an access key (i.e., a distinct text string) to enable authentication requests. You will use these tokens to access ACME's REST API importer endpoints.</p>
-                            
-                            <h5>Step 3: Import Your Data</h5>
-                            <p>After formatting the relevant importer and generating a bearer token, you can now import your data via a REST API request. This request must contain the following components:</p>
-                            <ul>
-                                <li><strong>Method:</strong> POST</li>
-                                <li><strong>URL:</strong> The relevant REST API endpoint</li>
-                                <li><strong>Authorization Type:</strong> Bearer Token</li>
-                                <li><strong>Header:</strong> `content-type: application/JSON`</li>
-                                <li><strong>Body:</strong> Your data mapped to the relevant ACME Importer.</li>
-                            </ul>
-
-                            <h5>Step 4: Evaluate Responses</h5>
-                            <p>After importing data into ACME, two forms of responses may be returned: API responses and SQS queue responses. When your import is processed, one of the API responses listed below will be returned.</p>
-
-                            <h4>Sample 2: Product Importer API Reference</h4>
-                            
-                            <h5>Overview</h5>
-                            <p>The ACME Products Importer provides the necessary structure for mapping and organizing all relevant product records and characteristics, e.g., SKUs, item names, and attributes.</p>
-                            <p>Though prices may differ based on store location, product characteristics typically remain static. As a result, product records are often imported at the root-level of a location hierarchy, making them available to your entire store network.</p>
-
-                            <h5>Example Use Cases</h5>
-                            <ul>
-                                <li>The ability to make products available to the POS and proceed to sales.</li>
-                                <li>The ability to automatically replicate product records to POS devices for use in offline mode.</li>
-                                <li>The option to manually replicate product records to POS devices as needed.</li>
-                                <li>The ability to display product names and descriptions in a preferred language (at one or many store locations).</li>
-                                <li>The ability to push actions to the POS based on values defined in product-level properties.</li>
-                            </ul>
-
-                            <h5>Integration Notes</h5>
-                            <p>Products are maintained in each customer's ERP system. Therefore, to interact with your product inventory via the ACME application, you must upload specific data elements from your ERP system into the ACME platform.</p>
-                            <p>However, ERP systems do not typically contain all of the information required to successfully map your product data. This is due to the fact that the Products Importer contains a set of ACME-specific properties. As a result, you will likely need to use an API management tool to package your API request.</p>
-
-                            <h5>Example Payload: Product with Variants</h5>
-                            <pre><code>{
-  "Products": {
-    "locationId": "acme_global",
-    "Product": [{
-      "id": "999999",
-      "RetailerId": "acme_global",
-      "ProductCode": "999999",
-      "Name": "Sample product variant name",
-      "ProductType": "StyleColorSize",
-      "ProductSkus": {
-        "Sku": [{
-          "id": "999999-BK-02",
-          "Name": "Sample product variant name",
-          "Variants": {
-            "type": [{"id": "color", "value": "black"}, {"id": "size", "value": "02"}]
-          }
-        }, {
-          "id": "999999-WH-04",
-          "Name": "Sample product variant name",
-          "Variants": {
-            "type": [{"id": "color", "value": "white"}, {"id": "size", "value": "04"}]
-          }
-        }]
-      }
-    }]
-  }
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <!-- User-Facing Guides -->
-                    <div id="user-guides" class="tab-content doc-content" style="display:none;">
-                        <div class="prose max-w-none">
-                            <h3>POS Cart User Guide</h3>
-                            <blockquote>This guide explains the features and functions of a Point of Sale (POS) Cart screen, written for a non-technical audience like retail store associates. It focuses on clear, step-by-step instructions for completing daily tasks.</blockquote>
-                            
-                            <h4>Introduction</h4>
-                            <p>The Cart operates as the POS application's idle screen. You can access it from each of the following locations:</p>
-                            <ul>
-                                <li>After logging into the POS UI, you will land on the Cart screen by default.</li>
-                                <li>After completing a transaction, you will be automatically redirected to an empty Cart screen.</li>
-                                <li>On the upper-left side of the POS UI, expand the main menu and click Cart.</li>
-                            </ul>
-                            <p>At a high level, the POS Cart is separated into two sections:</p>
-                            <ul>
-                                <li><strong>Item cards:</strong> Contains information related to each transaction item, e.g., the Image, SKU, Quantity, Unit Price, and Total Price.</li>
-                                <li><strong>Checkout Summary panel:</strong> Contains transaction-level information, e.g., the Subtotal, applied Promotion and Discount values, Taxes, and Transaction Total.</li>
-                            </ul>
-
-                            <h4>Modifying Items in the Cart</h4>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Action</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Add Manual Discount</td>
-                                        <td>Apply a percentage or fixed amount discount to a specific item. This requires selecting a reason code (e.g., "Damaged," "Staff Discount").</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Override Item Price</td>
-                                        <td>Manually change the unit price of an item. This requires a reason code (e.g., "Product Imported With Incorrect Price").</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Modify Item Quantity</td>
-                                        <td>Increase or decrease the quantity by scanning the item multiple times or using the `+` and `-` buttons on the item card.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Void Item</td>
-                                        <td>Remove an item from the Cart.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <h4>Modifying the Entire Cart</h4>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Action</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Void Cart</td>
-                                        <td>Removes all items from the transaction.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Suspend</td>
-                                        <td>Pauses a transaction and prints a receipt with a barcode that can be scanned later to resume the transaction.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sell Gift Card</td>
-                                        <td>Activates and loads a specified amount onto a gift card.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tax Exempt</td>
-                                        <td>Applies tax-exempt status to the transaction by entering a valid Tax ID and Organization Name.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Strategy & Process Docs -->
-                    <div id="strategy-docs" class="tab-content doc-content" style="display:none;">
-                         <div class="prose max-w-none">
-                            <h3>Change Notice Process Definition</h3>
-                            <blockquote>This document defines the internal process, criteria, and scope for creating and delivering customer-facing Change Notices. This ensures clear and timely communication about product updates for stakeholders and is crucial for maintaining trust and alignment.</blockquote>
-                            
-                            <h4>Criteria and Scope</h4>
-                            <p>Change Notices are brief, release-specific documents that contain timely use case instructions, best practices, and/or implementation requirements for specified customer audiences.</p>
-                            <p>While release notes describe the highest level changes to the product, Change Notices typically go into greater detail on how and why a given change impacts a particular user type.</p>
-                            
-                            <h4>Template Structure</h4>
-                            <p>Change Notices are broken into the following major sections:</p>
-                            <ul>
-                                <li><strong>Who does this impact?</strong> Call out which customer types are impacted by the change.</li>
-                                <li><strong>Effective date:</strong> Provide the version number containing the change.</li>
-                                <li><strong>What is changing?</strong> Describe the customer-facing elements of the application that changed.</li>
-                                <li><strong>Why is the change being made?</strong> Provide brief context around why the update was implemented.</li>
-                                <li><strong>What impact will it have on customers?</strong> Describe what the impacted customer type must do as a result of the change.</li>
-                            </ul>
-
-                            <h4>Change Notice Workflow</h4>
-                            <ol class="relative border-l border-gray-200 ml-4 mt-4">                  
-                                <li class="mb-6 ml-6">            
-                                    <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white text-blue-600 font-bold">1</span>
-                                    <h5 class="font-semibold">Determine Need</h5>
-                                    <p class="text-sm text-gray-500">Product Owner identifies if a feature or enhancement requires a formal Change Notice during sprint planning.</p>
-                                </li>
-                                <li class="mb-6 ml-6">
-                                    <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white text-blue-600 font-bold">2</span>
-                                    <h5 class="font-semibold">Draft Content</h5>
-                                    <p class="text-sm text-gray-500">PO works with relevant SMEs (developers, designers) to draft the notice and alerts the Documentation Team.</p>
-                                </li>
-                                <li class="mb-6 ml-6">
-                                    <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white text-blue-600 font-bold">3</span>
-                                    <h5 class="font-semibold">Edit & Format</h5>
-                                    <p class="text-sm text-gray-500">The draft is handed off to the Documentation Team for final editing, formatting, and quality assurance.</p>
-                                </li>
-                                 <li class="ml-6">
-                                    <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white text-blue-600 font-bold">4</span>
-                                    <h5 class="font-semibold">Deploy</h5>
-                                    <p class="text-sm text-gray-500">The finalized notice is published to the customer-facing documentation portal and distributed to impacted users.</p>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
-
-        <footer class="text-center py-12 mt-8">
-            <p class="text-gray-600">Let's connect. I'm available for high-impact remote opportunities.</p>
-             <div class="mt-4 flex justify-center items-center gap-x-6">
-                <a href="mailto:JoshuaYoung4@gmail.com" class="link font-semibold">Email Me</a>
-                <a href="#" class="link font-semibold">LinkedIn Profile</a>
-                <a href="#" class="link font-semibold">GitHub</a>
-            </div>
-        </footer>
-
-    </div>
-
-    <script>
-        const tabs = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.doc-content');
-
-        function openTab(event, tabName) {
-            contents.forEach(content => content.style.display = 'none');
-            tabs.forEach(tab => tab.classList.replace('tab-active', 'tab-inactive'));
+        <main>
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    [cite_start]<li class="skill-item">Agile</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Asana</li> [cite: 42]
+                    [cite_start]<li class="skill-item">ATS Optimization</li> [cite: 42]
+                    [cite_start]<li class="skill-item">AWS</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Bitbucket</li> [cite: 42]
+                    [cite_start]<li class="skill-item">CI/CD</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Confluence</li> [cite: 42]
+                    [cite_start]<li class="skill-item">CSS</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Document360</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Git</li> [cite: 42]
+                    [cite_start]<li class="skill-item">HTML</li> [cite: 42]
+                    [cite_start]<li class="skill-item">JavaScript</li> [cite: 42]
+                    [cite_start]<li class="skill-item">JIRA</li> [cite: 42]
+                    [cite_start]<li class="skill-item">JSON</li> [cite: 42]
+                    [cite_start]<li class="skill-item">MadCap Flare</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Markdown</li> [cite: 42]
+                    [cite_start]<li class="skill-item">OAuth</li> [cite: 42]
+                    [cite_start]<li class="skill-item">OpenAPI / Swagger</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Postman</li> [cite: 42]
+                    [cite_start]<li class="skill-item">React</li> [cite: 42]
+                    [cite_start]<li class="skill-item">REST APIs</li> [cite: 42]
+                    [cite_start]<li class="skill-item">SaaS</li> [cite: 42]
+                    [cite_start]<li class="skill-item">SAML</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Scrum</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Slack</li> [cite: 42]
+                    [cite_start]<li class="skill-item">SQL</li> [cite: 42]
+                    [cite_start]<li class="skill-item">Static site generators</li> [cite: 42]
+                    [cite_start]<li class="skill-item">TypeScript</li> [cite: 42]
+                    [cite_start]<li class="skill-item">XML</li> [cite: 42]
+                    [cite_start]<li class="skill-item">YAML</li> [cite: 42]
+                </ul>
+            </section>
             
-            document.getElementById(tabName).style.display = 'block';
-            event.currentTarget.classList.replace('tab-inactive', 'tab-active');
-        }
-    </script>
+            <section id="experience">
+                <h2>Work Experience</h2>
+                <div class="job">
+                    [cite_start]<span class="date">2020-2025</span> [cite: 10]
+                    [cite_start]<h3>OneView Commerce</h3> [cite: 9]
+                    [cite_start]<div class="job-title">Principal API Technical Writer</div> [cite: 8]
+                    <ul>
+                        [cite_start]<li>Founded and led the company's first DocOps department, transforming technical communication and developer experience for Headless App and SaaS UI platforms in a fully remote environment. [cite: 11]</li>
+                        [cite_start]<li>Architected, launched, and managed the documentation portal, a unified platform serving as a cornerstone for product showcase and integration for internal and external stakeholders, significantly improving content accessibility and user engagement. [cite: 12]</li>
+                        [cite_start]<li>Designed and implemented a comprehensive API documentation infrastructure, transitioning from legacy wiki systems to a standardized, documentation-as-a-product model, enhancing developer experience. [cite: 13]</li>
+                        [cite_start]<li>Established and directed an enterprise-wide documentation governance program, successfully training and aligning cross-functional teams on modern documentation best practices across multiple platforms. [cite: 14]</li>
+                        [cite_start]<li>Led strategic initiatives to standardize product taxonomy and information architecture, significantly improving user experience, content accessibility, and cross-departmental communication. [cite: 15]</li>
+                        [cite_start]<li>Developed and implemented automated documentation workflows integrated with JSON, TypeScript, and AWS services (e.g., SQS, Lambda), increasing documentation efficiency and accuracy. [cite: 16]</li>
+                        [cite_start]<li>Created a scalable documentation architecture supporting both SaaS and headless application products, facilitating seamless client integration and reducing time-to-market for new features. [cite: 17]</li>
+                        [cite_start]<li>Spearheaded cross-departmental documentation adoption initiatives, streamlining onboarding processes and demonstrably reducing support queries. [cite: 18]</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    [cite_start]<span class="date">2015-2020</span> [cite: 21]
+                    [cite_start]<h3>Optum Analytics</h3> [cite: 20]
+                    [cite_start]<div class="job-title">Senior Technical Writer</div> [cite: 19]
+                    <ul>
+                        [cite_start]<li>Led enterprise-wide documentation strategy for complex business intelligence platforms, enhancing clarity and usability for diverse audiences. [cite: 22]</li>
+                        [cite_start]<li>Established and enforced documentation standards and processes across multiple agile development teams, improving content consistency and quality. [cite: 23]</li>
+                        [cite_start]<li>Architected and implemented a robust documentation lifecycle system, including automated deployment pipelines from Git repositories to client-facing platforms. [cite: 24]</li>
+                        [cite_start]<li>Developed an innovative auto-generation system for documentation, dynamically updating content based on application and database changes. [cite: 25]</li>
+                        [cite_start]<li>Established and led a documentation governance program, training product managers, developers, and SMEs on documentation best practices. [cite: 26]</li>
+                        [cite_start]<li>Built and mentored a high-performing technical writing team, implementing remote methodologies for workflow optimization. [cite: 27]</li>
+                        [cite_start]<li>Created standardized documentation frameworks for the full product lifecycle, from functional specifications to API reference manuals and training materials. [cite: 28]</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    [cite_start]<span class="date">2012-2015</span> [cite: 31]
+                    [cite_start]<h3>Hologic, Inc.</h3> [cite: 30]
+                    [cite_start]<div class="job-title">Technical Writer II</div> [cite: 29]
+                    <ul>
+                        [cite_start]<li>Spearheaded documentation initiatives for FDA-regulated products, ensuring strict compliance with regulatory standards. [cite: 32]</li>
+                        [cite_start]<li>Led documentation strategy and execution for a product launch, directly contributing to a $400M+ annual revenue increase. [cite: 33]</li>
+                        [cite_start]<li>Established and enforced FDA-compliant change control processes for all product documentation, ensuring quality control readiness and traceability. [cite: 34]</li>
+                        [cite_start]<li>Served as the primary documentation expert during FDA audits, successfully defending documentation methodologies. [cite: 35]</li>
+                        [cite_start]<li>Implemented new documentation standards across quality specifications, Standard Operating Procedures (SOPs), and validation protocols. [cite: 36]</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    [cite_start]<span class="date">2010-2012</span> [cite: 39]
+                    [cite_start]<h3>Price Wheeler Corp</h3> [cite: 38]
+                    [cite_start]<div class="job-title">Technical Writer</div> [cite: 37]
+                    <ul>
+                        [cite_start]<li>Developed and executed a user-centered, SEO-optimized technical content strategy for the company's industrial manufacturing portfolio, improving online visibility and information quality. [cite: 40]</li>
+                    </ul>
+                </div>
+            </section>
 
-</body>
-</html>
+            <section id="education">
+                <h2>Education</h2>
+                <div class="education-entry">
+                     [cite_start]<span class="date">UCLA Los Angeles, CA</span> [cite: 45]
+                    [cite_start]<h3>B.A. in Philosophy</h3> [cite: 44]
+                </div>
+            </section>
+
+            <section id="samples">
+                <h2>Writing Samples</h2>
+                
+                <div class="sample-container">
+                    <details>
+                        <summary>Sample 1: API Data Import Process Guide</summary>
+                        <div class="sample-content">
+<pre>
+# Import Process
+
+Use the following process to import data into the Platform:
+1. Format the relevant importer
+2. Generate a bearer token
+3. Import your data
+4. Evaluate responses
+
+## Note on best practices
+
+During the import process, the Company recommends adhering to the following best practices:
+
+| Topic              | Description                                                                                                                                                                                            |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Import thresholds** | To maximize the speed at which your data is processed, it is highly recommended that you separate your Product and Price records into multiple batches/requests, e.g., importing batches of 100 products, 10 requests at a time, and a 1 second pause between each request. |
+| **Manual imports** | The process described on this page must be followed when manually importing data into the Platform. You can use this process for establishing an initial master dataset, running tests against sample populations, or troubleshooting backend automation issues. |
+| **Automated imports** | After completing the initial Master Data integration process, it is recommended that all future data imports are scheduled to run at pre-configured intervals. This automated setup ensures critical data remains up-to-date and aligned with your systems of record. |
+
+---
+
+## 1. Format the relevant importer
+
+To get started on the Platform, you must first understand how your underlying master data will be used, how each data type is intertwined, and why this data is necessary for performing basic functions on the POS application.
+
+### Data format
+
+Each set of master data is typically derived from an external system of record, e.g., from your ERP Systems. To upload your master data into the Platform, you must use a set of dedicated Importers, i.e., schemas that enable you to easily convert your ERP data to JavaScript Object Notation (JSON) format.
+
+This JSON formatting ensures:
+- You can bypass custom schema development and immediately start the import process.
+- Your imports are mapped correctly and processed successfully.
+- Your initial data payload can meet the requirements of any custom UI or legacy system.
+
+### Import requirements
+
+The Company provides five dedicated Importers for each type of master data. When using bulk importers for the first time, you must map your upstream data to equivalent required/optional fields contained in each Importer. To successfully integrate to the Company's Digital Platform, you must begin by importing all five master data types in the order listed below.
+
+| Order         | Data type          |
+|---------------|--------------------|
+| First import  | Locations          |
+| Second import | Merchandise Groups |
+| Third import  | Products           |
+| Fourth import | Prices             |
+| Fifth import  | Taxes              |
+
+---
+
+## 2. Generate a bearer token
+
+Bearer tokens use an access key (i.e., a distinct text string) to enable authentication requests. You will use these tokens to access the Company’s REST API importer endpoints.
+
+To generate a bearer token, use the required variables, request structure, and request process outlined below.
+
+### Required variables
+
+Each of the following variables are required in order to successfully process your request:
+
+| Name                        | Description                                                                                                                                  |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| `$EnvironmentType`          | The name and type of environment for which you are requesting access, e.g., `dev-env`.                                                       |
+| `$CustomerCode`             | The short-form customer identifier associated to the environment for which you are requesting access, e.g., `acme`. (Note: This code is unique to all customers and is usually 2-3 letters in length). |
+| `$Region`                   | The relevant cloud provider region, e.g., `us-east-1`. (Note: To access this information, log into your password manager and search for the "Cloud Account - Customer Info" record). |
+| `$Base64Auth`               | A string authenticated for HTTP Basic Auth that contains `$ClientId` and `$ClientSecret` values. This string is encoded as follows: `Authorization: Basic <$Base64Auth($ClientId:$ClientSecret)>` |
+| `$GrantType`                | A body parameter used to define your OAuth flow, e.g., `client_credentials`.                                                                 |
+| `$ClientId` / `$ClientSecret` | Unique, alphanumeric public and private client identifiers that are specific to each `$EnvironmentType`. (Note: To access this information, log into your password manager and search for the "Cloud Cognito Client - Integrations" record). |
+| `$ResourceServerIdentifier` | A unique identifier for the resource server, e.g., `acme-dev-env-integrations`. (Note: To access this information, log into your password manager and search for the "Cloud Cognito Client - Integrations" record). |
+| `$ScopeName`                | The scope name, e.g., `integrations`. (Note: To access this information, log into your password manager and search for the "Cloud Cognito Client - Integrations" record). |
+
+### Request structure
+
+Use the command structure below to generate a bearer token for your respective environment.
+
+```bash
+curl --X POST \
+  https://$EnvironmentType-$CustomerCode.auth.$[Region.amazoncognito.com/oauth2/token](https://Region.amazoncognito.com/oauth2/token) \
+  -H 'Authorization:Basic $Base64Auth' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d 'grant_type=$GrantType&client_id=$ClientId&scope=$ResourceServerIdentifier/$ScopeName'
