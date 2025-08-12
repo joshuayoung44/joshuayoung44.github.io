@@ -286,81 +286,368 @@
                         <summary>Sample 1: API Data Import Process Guide</summary>
                         <div class="sample-content">
 <pre>
-# Import Process
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Process</title>
+</head>
+<body>
 
-Use the following process to import data into the Platform:
-1. Format the relevant importer
-2. Generate a bearer token
-3. Import your data
-4. Evaluate responses
+    <h1>Import Process</h1>
+    <h2>Our Platform Commerce</h2>
 
-## Note on best practices
+    <p>Use the following process to import data into Our Platform:</p>
+    <ol>
+        <li>Format the relevant importer</li>
+        <li>Generate a bearer token</li>
+        <li>Import your data</li>
+        <li>Evaluate responses</li>
+    </ol>
 
-During the import process, the Company recommends adhering to the following best practices:
+    <h3>Note on best practices</h3>
+    <p>During the import process, Our Platform recommends adhering to the following best practices:</p>
 
-| Topic              | Description                                                                                                                                                                                            |
-|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Import thresholds** | To maximize the speed at which your data is processed, it is highly recommended that you separate your Product and Price records into multiple batches/requests, e.g., importing batches of 100 products, 10 requests at a time, and a 1 second pause between each request. |
-| **Manual imports** | The process described on this page must be followed when manually importing data into the Platform. You can use this process for establishing an initial master dataset, running tests against sample populations, or troubleshooting backend automation issues. |
-| **Automated imports** | After completing the initial Master Data integration process, it is recommended that all future data imports are scheduled to run at pre-configured intervals. This automated setup ensures critical data remains up-to-date and aligned with your systems of record. |
+    <table>
+        <thead>
+            <tr>
+                <th>Topic</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Import thresholds</td>
+                <td>To maximize the speed at which your data is processed, it is highly recommended that you separate your Product and Price records into multiple batches / requests, e.g., importing batches of 100 products, 10 requests at a time, and a 1 second pause between each request.</td>
+            </tr>
+            <tr>
+                <td>Manual imports</td>
+                <td>The process described on this page must be followed when manually importing data into Our Platform. You can use this process for establishing an initial master dataset, running tests against sample populations, or troubleshooting backend automation issues.</td>
+            </tr>
+            <tr>
+                <td>Automated imports</td>
+                <td>After completing the initial Master Data integration process, it is recommended that all future data imports are scheduled to run at pre-configured intervals. This automated setup ensures critical data remains up-to-date and aligned with your systems of record.</td>
+            </tr>
+        </tbody>
+    </table>
 
----
+    <h2>1. Format the relevant importer</h2>
+    <p>To get started on the Our Platform, you must first understand how your underlying master data will be used, how each data type is intertwined, and why this data is necessary for performing basic functions on the POS application.</p>
 
-## 1. Format the relevant importer
+    <h3>Data format</h3>
+    <p>Each set of master data is typically derived from an external system of record, e.g., from your ERP Systems.</p>
+    <p>To upload your master data into Our Platform, you must use a set of dedicated Our Platform Importers, i.e., schemas that enable you to easily convert your ERP data to JavaScript Object Notation (JSON) format.</p>
+    <p>This JSON formatting ensures:</p>
+    <ul>
+        <li>You can bypass custom schema development and immediately start the import process.</li>
+        <li>Your imports are mapped correctly and processed successfully.</li>
+        <li>Your initial data payload can meet the requirements of any custom Ul or legacy system.</li>
+    </ul>
 
-To get started on the Platform, you must first understand how your underlying master data will be used, how each data type is intertwined, and why this data is necessary for performing basic functions on the POS application.
+    <h3>Import requirements</h3>
+    <p>Our Platform provides five dedicated Importers for each type of master data.</p>
+    <p>When using bulk importers for the first time, you must map your upstream data to equivalent required / optional fields contained in each Our Platform Importer.</p>
+    <p>To successfully integrate to the Our Digital Platform, you must begin by importing all five master data types in the order listed below.</p>
 
-### Data format
+    <table>
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Data type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First import</td>
+                <td>Locations</td>
+            </tr>
+            <tr>
+                <td>Second import</td>
+                <td>Merchandise Groups</td>
+            </tr>
+            <tr>
+                <td>Third import</td>
+                <td>Products</td>
+            </tr>
+            <tr>
+                <td>Fourth import</td>
+                <td>Prices</td>
+            </tr>
+            <tr>
+                <td>Fifth import</td>
+                <td>Taxes</td>
+            </tr>
+        </tbody>
+    </table>
 
-Each set of master data is typically derived from an external system of record, e.g., from your ERP Systems. To upload your master data into the Platform, you must use a set of dedicated Importers, i.e., schemas that enable you to easily convert your ERP data to JavaScript Object Notation (JSON) format.
+    <h2>2. Generate a bearer token</h2>
+    <p>Bearer tokens use an access key (i.e., a distinct text string) to enable authentication requests.</p>
+    <p>You will use these tokens to access Our Platform's REST API importer endpoints.</p>
+    <p>To generate a bearer token, use the required variables, request structure, and request process outlined below.</p>
 
-This JSON formatting ensures:
-- You can bypass custom schema development and immediately start the import process.
-- Your imports are mapped correctly and processed successfully.
-- Your initial data payload can meet the requirements of any custom UI or legacy system.
+    <h3>Required variables</h3>
+    <p>Each of the following variables are required in order to successfully process your request:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$EnvironmentType<br>$CustomerCode</td>
+                <td>The name and type of environment for which you are requesting access, e.g., sample-dev<br>The short-form customer identifier associated to the environment for which you are requesting access, e.g., abc.<br>Note: This code is unique to all Our Platform customers and is usually 2-3 letters in length.</td>
+            </tr>
+            <tr>
+                <td>$Region</td>
+                <td>The relevant cloud provider region, e.g., us-west-2.<br>Note: To access this information, log into a password manager and search for the "Cloud Account - Customer Info" record.</td>
+            </tr>
+            <tr>
+                <td>$Base64Auth<br>$GrantType</td>
+                <td>A string authenticated for HTTP Basic Auth that contains $ClientId and $ClientSecret values. This string is encoded as follows:<br>Authorization: Basic &lt;$Base64Auth($ClientId:$ClientSecret)&gt;<br>A body parameter used to define your OAuth flow, e.g., client_credentials</td>
+            </tr>
+            <tr>
+                <td>$ClientId / $ClientSecret</td>
+                <td>Unique, alphanumeric public and private client identifiers that are specific to each $EnvironmentType.<br>Note: To access this information, log into a password manager and search for the "Cloud Cognito Client - Integrations" record.</td>
+            </tr>
+            <tr>
+                <td>$ResourceServerIdentifier</td>
+                <td>A unique identifer for the resource server, e.g., abc-sample-dev-integrations<br>Note: To access this information, log into a password manager and search for the "Cloud Cognito Client - Integrations" record.</td>
+            </tr>
+            <tr>
+                <td>$ScopeName</td>
+                <td>The scope name, e.g., integrations.<br>Note: To access this information, log into a password manager and search for the "Cloud Cognito Client - Integrations" record.</td>
+            </tr>
+        </tbody>
+    </table>
 
-### Import requirements
+    <h3>Request structure</h3>
+    <p>Use the command structure below to generate a bearer token for your respective environment.</p>
+    <pre><code>
+    curl -X POST https://$EnvironmentType-$CustomerCode-auth.$Region.cloudprovider.com/oauth2/token -H 'Authorization: Basic $Base64Auth' -H 'content-type: application/x-www-form-urlencoded' -d 'grant_type=$GrantType&amp;client_id=$ClientId&amp;scope=$ResourceServerIdentifier/$ScopeName'
+    </code></pre>
 
-The Company provides five dedicated Importers for each type of master data. When using bulk importers for the first time, you must map your upstream data to equivalent required/optional fields contained in each Importer. To successfully integrate to the Company's Digital Platform, you must begin by importing all five master data types in the order listed below.
+    <h3>Example request</h3>
+    <p>Each variable (e.g., $EnvironmentType) will be replaced with values specific to your request.</p>
+    <p>For example, the following request contains the necessary information to access abc-sample-dev-integrations:</p>
+    <pre><code>
+    curl -X POST https://sample-dev-abc-auth.us-west-2.cloudprovider.com/oauth2/token -H 'Authorization: Basic [REDACTED_BASE64_STRING]' -H 'content-type: application/x-www-form-urlencoded' -d 'grant_type=client_credentials&amp;client_id=[REDACTED_CLIENT_ID]&amp;scope=abc-sample-dev-integrations/integrations'
+    </code></pre>
 
-| Order         | Data type          |
-|---------------|--------------------|
-| First import  | Locations          |
-| Second import | Merchandise Groups |
-| Third import  | Products           |
-| Fourth import | Prices             |
-| Fifth import  | Taxes              |
+    <h3>Request process</h3>
+    <p>The instructions below assume you will submit your request via the command line. If you are unfamiliar with the command line, you can generate tokens using a REST client.</p>
 
----
+    <h4>Generate a Basic Auth token</h4>
+    <p>In your terminal, enter the following command:</p>
+    <pre><code>
+    echo -n "$ClientId:$ClientSecret" | base64
+    </code></pre>
+    <p>Once your token is returned, populate the Authorization: Basic $Base64Auth component of your request.</p>
 
-## 2. Generate a bearer token
+    <h4>Generate a bearer token</h4>
+    <p>In your terminal, submit your formatted curl -X POST request. Once successfully processed, you will receive a response in the following format:</p>
+    <pre><code>
+    {"access_token": "xxxxxXXXXXXXXXX", "expires_in": 3600,"token_type": "Bearer"}
+    </code></pre>
+    <p>Note: Once generated, this "access_token":"xxxxxxxxxxxxxxx" can be used for Bearer Token Authentication (instead of Basic Authentication) when requesting access to the desired Our Platform endpoint in a REST client.</p>
 
-Bearer tokens use an access key (i.e., a distinct text string) to enable authentication requests. You will use these tokens to access the Company’s REST API importer endpoints.
+    <h2>3. Import your data</h2>
+    <p>After formatting the relevant importer and generating a bearer token, you can now import your data via a REST API request.</p>
 
-To generate a bearer token, use the required variables, request structure, and request process outlined below.
+    <h3>Request components</h3>
+    <p>This request must contain the following components:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Component(s)</th>
+                <th>Value(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Method</td>
+                <td>POST</td>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td>The relevant REST API endpoint</td>
+            </tr>
+            <tr>
+                <td>Authorization type</td>
+                <td>Bearer Token</td>
+            </tr>
+            <tr>
+                <td>Username and password</td>
+                <td>Provided by your customer success lead.</td>
+            </tr>
+            <tr>
+                <td>Header</td>
+                <td>A single header with the following key/value pair: content-type (key) and application/JSON (value)</td>
+            </tr>
+            <tr>
+                <td>Body</td>
+                <td>Your data mapped to the relevant Our Platform Importer.</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Note: When testing API calls manually, it is recommended that you use REST API software.</p>
 
-### Required variables
+    <h3>Endpoint components</h3>
+    <p>Each importer endpoint is formatted as follows:</p>
+    <pre><code>
+    https://{{gatewayURL}}/importers/&lt;importer-name&gt;
+    </code></pre>
 
-Each of the following variables are required in order to successfully process your request:
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gateway URL</td>
+                <td>The URL used to log into the application on a device—including a Hypertext Transfer Protocol Secure (i.e., https:// ) prefix.</td>
+            </tr>
+            <tr>
+                <td>Data entity name</td>
+                <td>The name of the data entity to be imported—including an "importers/" prefix (e.g., importers/prices ).</td>
+            </tr>
+        </tbody>
+    </table>
 
-| Name                        | Description                                                                                                                                  |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| `$EnvironmentType`          | The name and type of environment for which you are requesting access, e.g., `dev-env`.                                                       |
-| `$CustomerCode`             | The short-form customer identifier associated to the environment for which you are requesting access, e.g., `acme`. (Note: This code is unique to all customers and is usually 2-3 letters in length). |
-| `$Region`                   | The relevant cloud provider region, e.g., `us-east-1`. (Note: To access this information, log into your password manager and search for the "Cloud Account - Customer Info" record). |
-| `$Base64Auth`               | A string authenticated for HTTP Basic Auth that contains `$ClientId` and `$ClientSecret` values. This string is encoded as follows: `Authorization: Basic <$Base64Auth($ClientId:$ClientSecret)>` |
-| `$GrantType`                | A body parameter used to define your OAuth flow, e.g., `client_credentials`.                                                                 |
-| `$ClientId` / `$ClientSecret` | Unique, alphanumeric public and private client identifiers that are specific to each `$EnvironmentType`. (Note: To access this information, log into your password manager and search for the "Cloud Cognito Client - Integrations" record). |
-| `$ResourceServerIdentifier` | A unique identifier for the resource server, e.g., `acme-dev-env-integrations`. (Note: To access this information, log into your password manager and search for the "Cloud Cognito Client - Integrations" record). |
-| `$ScopeName`                | The scope name, e.g., `integrations`. (Note: To access this information, log into your password manager and search for the "Cloud Cognito Client - Integrations" record). |
+    <h3>Example request</h3>
+    <p>For example, a retailer might submit the following request to the prices endpoint:</p>
+    <pre><code>
+    curl --location-request POST 'https://api.sample-dev.abc.ourplatformcloud.com/importers/prices' \
+    --data-raw '{
+        "ProductPrices": {
+            "locationId": "ALL-LOCATIONS",
+            "ProductPrice": [
+                {
+                    "Type": "1",
+                    "RetailerId": "defaultRetailer",
+                    "ProductCode": "PROD001",
+                    "SKU": "PROD001SKU",
+                    "StartDate": {
+                        "f": 1,
+                        "value": "20230101"
+                    },
+                    "EndDate": {
+                        "f": 1,
+                        "value": "20241231"
+                    },
+                    "CurrencyId": "USD",
+                    "Amount": "10.00"
+                }
+            ]
+        }
+    }'
+    </code></pre>
 
-### Request structure
+    <h2>4. Evaluate responses</h2>
+    <p>After importing data into Our Platform, two forms of responses may be returned:</p>
+    <h3>API responses</h3>
+    <p>When your import is processed, one of the API responses listed below will be returned.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Status code</th>
+                <th>Message</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>200</td>
+                <td>requestId</td>
+                <td>A generic response indicating the import was received. Note: Receiving a 200 response does not necessarily indicate your request was successfully processed. For a detailed description of your request status, use the requestId to locate and review the response delivered to your SQS queue. Currently, 204 (partial success) and 207 (complete success) status codes are not returned.</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>bad request</td>
+                <td>Indicates the request cannot be fulfilled due to bad syntax.</td>
+            </tr>
+            <tr>
+                <td>401</td>
+                <td>unauthorized</td>
+                <td>Indicates an authentication failure, i.e., incorrect or missing credentials were used in the request.</td>
+            </tr>
+            <tr>
+                <td>403</td>
+                <td>forbidden</td>
+                <td>Indicates the endpoint is incorrect or incorrectly formatted.</td>
+            </tr>
+            <tr>
+                <td>429</td>
+                <td>too many requests</td>
+                <td>Indicates too many requests were submitted at once, and the application failed to process the data.</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>internal server error</td>
+                <td>Indicates the connection cannot be made, and the system or import service may be down. When this occurs, contact your administrator. Note: If stageVariables are unavailable, the API will respond with a 500 error for all imports.</td>
+            </tr>
+            <tr>
+                <td>502</td>
+                <td>bad gateway</td>
+                <td>Indicates the API URL was formatted incorrectly.</td>
+            </tr>
+            <tr>
+                <td>504</td>
+                <td>lambda timeout</td>
+                <td>Indicates the file is too large, and the request timed out before it was fully processed.</td>
+            </tr>
+        </tbody>
+    </table>
 
-Use the command structure below to generate a bearer token for your respective environment.
+    <h3>SQS queue responses</h3>
+    <p>In addition to the potential API error responses, one of the messages below will also be available in your associated SQS queue.</p>
+    <p>When viewing these messages, note:</p>
+    <ul>
+        <li>Each SQS message explains the import type (e.g., Product, Price, MMG, etc.) and status (e.g., success / failure).</li>
+        <li>You can use the unique requestId (contained in your API response) to match each SQS ID/Body to your attempted import.</li>
+    </ul>
 
-```bash
-curl --X POST \
-  https://$EnvironmentType-$CustomerCode.auth.$[Region.amazoncognito.com/oauth2/token](https://Region.amazoncognito.com/oauth2/token) \
-  -H 'Authorization:Basic $Base64Auth' \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -d 'grant_type=$GrantType&client_id=$ClientId&scope=$ResourceServerIdentifier/$ScopeName'
+    <table>
+        <thead>
+            <tr>
+                <th>Message type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Successful Import</td>
+                <td>Indicates the import was processed successfully.</td>
+            </tr>
+            <tr>
+                <td>Schema validation error</td>
+                <td>Indicates the import is missing a required field. Note: If there are multiple schema validation errors, the SQS import message displays the instance number(s) corresponding to the rejected JSON schema(s), e.g., instance.Taxes[50].</td>
+            </tr>
+            <tr>
+                <td>Property / field validation error</td>
+                <td>Indicates the import contains invalid values (e.g., inputting an EndDate that precedes a StartDate, inputting a location that doesn't exist in the database, etc.). Note: If there are multiple schema validation errors, the SQS import error queue displays each rejected JSON schema ID separated by a comma.</td>
+            </tr>
+            <tr>
+                <td>Failure to post to Database</td>
+                <td>Indicates the imported JSON schema contains updates to a field not contained in the database. Note: When you receive this response, the SQS import error queue displays the rejected JSON schema ID, as well as the reason, e.g., Document update conflict.</td>
+            </tr>
+            <tr>
+                <td>Too many requests</td>
+                <td>Indicates you have submitted too many requests and exceeded your rate limit allowance.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Note:</strong></p>
+    <ul>
+        <li>To ensure you receive immediate feedback after importing Locations, your responses will be returned to the source of the original request and will not display in the SQS queue.</li>
+        <li>After an attempted Product, Prices, Linked Products, or Product Attributes import, this error message includes the relevant productId with a link to the S3 bucket containing the corresponding request payload.</li>
+    </ul>
+
+</body>
+</html>
